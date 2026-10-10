@@ -1,0 +1,37 @@
+# Python and environments
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.venv*/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# Credentials and local settings
+.env
+.env.*
+!*.env.example
+*.pem
+*.key
+
+# Downloaded assets and generated artifacts
+weights/
+vendor/
+cache/
+runs/
+results/
+outputs/
+data/
+wandb/
+checkpoints/
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.bin
+
+# System and editor files
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,14 @@
+numpy>=1.26,<2.3
+pillow>=10,<12
+tqdm>=4.66,<5
+scipy==1.15.3
+clean-fid==0.1.35
+ftfy>=6.2,<7
+regex>=2024.5
+image-reward==1.5
+hpsv2==1.2.0
+open-clip-torch>=2.24,<3
+openai-clip==1.0.1
+diffusers==0.32.2
+transformers==4.47.1
+huggingface_hub[hf_xet]>=0.32,<1
