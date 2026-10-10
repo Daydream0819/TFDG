@@ -1,23 +1,30 @@
 # SD3.5-Large
 
-This folder contains only the velocity-prediction adapter for SD3.5-Large.
-Install PyTorch with the CUDA version provided by the server, then install the
-remaining dependencies with `pip install -r requirements.txt`. The gated
-checkpoint is downloaded with:
+This folder contains the velocity-prediction adapter for SD3.5-Large. Install
+a PyTorch and torchvision pair compatible with the local CUDA driver, then
+install the remaining dependencies from the repository root:
+
+```bash
+pip install -r code/sd35/requirements.txt
+```
+
+## Download checkpoint
+
+SD3.5-Large is gated. Sign in to
+[the official model page](https://huggingface.co/stabilityai/stable-diffusion-3.5-large),
+accept its license, and create a Hugging Face access token with read permission.
+From the repository root, run:
 
 ```bash
 export HF_TOKEN='your_huggingface_token'
-python download_model.py
+
+python code/sd35/download_model.py \
+  --output weights/sd35-large
 ```
 
-For a fresh AutoDL server, use the independent SD3.5 upload package under
-`final_release/server_code/sd35/`. Its single `setup_and_download.sh` entry
-point creates isolated generation/evaluation environments, accelerates package
-installation, downloads the gated model, and warms the text-metric weights.
-
 The command stores the Diffusers checkpoint at `weights/sd35-large/`. You may
-use `--output` to place it on a data disk and pass that path to `run.py` with
-`--model`. The runner maps
+place it on a data disk by changing `--output` and pass that directory to
+`run.py` with `--model`. The runner maps
 
 ```text
 velocity -> clean latent anchor -> guidance -> velocity -> Euler update

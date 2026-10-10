@@ -41,9 +41,24 @@ pip install -r code/sd35/requirements.txt
 ```
 
 Replace `cu124` with the CUDA wheel index matching the target machine. See
-the README in the chosen model folder for its checkpoint download command and
-its runner options. SD3.5-Large requires an accepted Hugging Face license and
-an environment variable named `HF_TOKEN`.
+the README in the chosen model folder for its runner options.
+
+## SD3.5-Large checkpoint
+
+SD3.5-Large is a gated Hugging Face model. Before downloading it, sign in to
+[the official model page](https://huggingface.co/stabilityai/stable-diffusion-3.5-large)
+and accept its license. Create a Hugging Face access token with read permission,
+then run the following commands from the repository root:
+
+```bash
+export HF_TOKEN='your_huggingface_token'
+
+python code/sd35/download_model.py \
+  --output weights/sd35-large
+```
+
+The checkpoint is stored in `weights/sd35-large/`, which is excluded from Git.
+Provide this directory to the SD3.5 runner through `--model`.
 
 ## Quick start
 
